@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local test artifacts
+.chrome-test/
+_cdp-*.js
+_shot-*.png
+_gamecheck.js
+
+# Node (not required for this site)
+node_modules/
+npm-debug.log*
