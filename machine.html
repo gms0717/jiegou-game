@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#08080a">
-<title>借过 · JIE GUO</title>
+<title>Excuse Me · A Puzzle of Borrowed Paths</title>
 <style>
 /* ============================================================
    《借过》样式
@@ -338,11 +338,11 @@ a{color:inherit}
 .title{
   margin:0;
   font-family:var(--serif);
-  font-size:clamp(80px,17vw,142px);
+  font-size:clamp(54px,11vw,112px);
   font-weight:500;
-  line-height:.86;
-  letter-spacing:.1em;
-  text-indent:.1em;
+  line-height:.9;
+  letter-spacing:.04em;
+  text-indent:.04em;
   text-shadow:0 0 70px rgba(243,201,105,.1);
   user-select:none;
 }
@@ -553,7 +553,7 @@ a{color:inherit}
 @media (max-height:680px) and (orientation:landscape){
   .topbar{height:46px}
   .site-foot{display:none}
-  .title{font-size:clamp(60px,12vh,96px)}
+  .title{font-size:clamp(44px,10vh,76px)}
   .eyebrow{margin-bottom:10px}
   .slogan{margin-top:14px}
   .title-desc{line-height:1.6;margin-top:10px}
@@ -573,31 +573,31 @@ a{color:inherit}
 <div class="app" id="app">
   <header class="topbar">
     <div class="topbar-left">
-      <a class="home-link" href="index.html" title="返回首页" aria-label="返回首页">←</a>
-      <div class="wordmark">借过 <span>JIE GUO</span></div>
+      <a class="home-link" href="index.html" title="Back to home" aria-label="Back to home">←</a>
+      <div class="wordmark">EXCUSE ME <span>BORROWED PATHS</span></div>
     </div>
     <div class="topbar-actions">
-      <button class="icon-btn" id="soundBtn" type="button" aria-label="切换音效">音效</button>
-      <button class="icon-btn" id="menuBtn" type="button" aria-label="打开目录">目录</button>
+      <button class="icon-btn" id="soundBtn" type="button" aria-label="Toggle sound">SOUND</button>
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Open menu">MENU</button>
     </div>
   </header>
 
   <main class="stage">
     <div class="hud" aria-live="polite">
       <div class="hud-steps">
-        <span class="hud-kicker">步数</span>
+        <span class="hud-kicker">STEPS</span>
         <strong id="stepValue">00</strong>
         <span id="maxStep">/10</span>
       </div>
       <div class="hud-level">
         <span class="no" id="levelNo">01</span>
-        <b id="levelName">让一让</b>
+        <b id="levelName">Step Aside</b>
       </div>
-      <div class="hud-stars" id="starMeter" aria-label="本局可获得三星">★★★</div>
+      <div class="hud-stars" id="starMeter" aria-label="This run can earn three stars">★★★</div>
     </div>
 
     <div class="board-shell" id="canvasWrap">
-      <canvas id="game" tabindex="0" aria-label="借过游戏画布。点击路人推动他们，长按蓄力，双击空地跺脚。" role="application"></canvas>
+      <canvas id="game" tabindex="0" aria-label="Excuse Me game canvas. Tap people to push them, hold to charge, double-tap empty ground to stomp." role="application"></canvas>
       <div class="intro-card" id="introCard" aria-hidden="true"></div>
       <div class="tip-bubble" id="tipBubble" role="status"></div>
       <div class="toast" id="toast" role="status"></div>
@@ -606,52 +606,52 @@ a{color:inherit}
     <div class="controls">
       <div class="hint-line">
         <span class="pulse-dot" aria-hidden="true"></span>
-        <span id="hintText">点一下，他就退一步。</span>
+        <span id="hintText">Tap someone. They'll step back.</span>
       </div>
       <div class="control-actions">
-        <span class="stomp-help">双击空地跺脚 <b id="stompCount">3</b>/3</span>
-        <button class="btn-ghost" id="retryBtn" type="button">再借一回</button>
+        <span class="stomp-help">Double-tap ground to stomp <b id="stompCount">3</b>/3</span>
+        <button class="btn-ghost" id="retryBtn" type="button">Borrow Again</button>
       </div>
     </div>
   </main>
 
   <footer class="site-foot">
-    <span>你不动。世界让路。</span>
-    <span><a href="index.html">返回学习页</a></span>
+    <span>You don't move. The world does.</span>
+    <span><a href="index.html">Back to site</a></span>
   </footer>
 </div>
 
-<!-- 标题页 -->
+<!-- Title screen -->
 <div class="screen" id="titleScreen" aria-hidden="true">
   <div class="screen-inner">
     <p class="eyebrow">A PUZZLE ABOUT NOT MOVING</p>
-    <h1 class="title">借过<span class="title-dot">。</span></h1>
-    <p class="slogan">路，是别人让出来的。</p>
-    <p class="title-desc">你是透明的。你一步也不走。<br>你只是说服别人，稍微挪一挪。</p>
+    <h1 class="title">Excuse Me<span class="title-dot">.</span></h1>
+    <p class="slogan">The road is made by those who move.</p>
+    <p class="title-desc">You are invisible. You cannot take a single step.<br>You only persuade others to shift a little.</p>
     <div class="title-buttons">
-      <button class="btn-primary" id="continueBtn" type="button">开始借路</button>
+      <button class="btn-primary" id="continueBtn" type="button">Start</button>
       <button class="btn-secondary" id="dailyBtn" type="button">
-        <span>每日挑战</span>
-        <small id="dailyNote">今天全服推同一拨人</small>
+        <span>Daily Challenge</span>
+        <small id="dailyNote">Same crowd, same layout today</small>
       </button>
     </div>
-    <div class="level-select" id="levelSelect" aria-label="选择教学关"></div>
+    <div class="level-select" id="levelSelect" aria-label="Choose a tutorial level"></div>
     <button class="bonus-link" id="bonusBtn" type="button">
       <span class="tag">EXTRA</span>
-      <span>机关试验场</span>
-      <span class="state" id="bonusState">转门 · 传送带 · 单向闸 · 共鸣柱</span>
+      <span>Mechanism Room</span>
+      <span class="state" id="bonusState">Doors · Belts · Gates · Pillars</span>
     </button>
     <div class="achievement-strip" id="achievementStrip"></div>
-    <p class="tiny-note">鼠标 / 触摸 · 无方向键 · 你本来也动不了</p>
+    <p class="tiny-note">Mouse / touch · No arrow keys · You can't move anyway</p>
   </div>
 </div>
 
-<!-- 结算页 -->
+<!-- Result screen -->
 <div class="screen" id="resultScreen" aria-hidden="true">
   <div class="result-card">
     <p class="eyebrow" id="resultEyebrow">RESULT</p>
-    <h2 id="resultTitle">借到了</h2>
-    <div class="big-stars" id="resultStars" aria-label="评价星级"></div>
+    <h2 id="resultTitle">Path Borrowed</h2>
+    <div class="big-stars" id="resultStars" aria-label="Rating"></div>
     <p class="result-copy" id="resultCopy"></p>
     <div class="result-stats" id="resultStats"></div>
     <div class="achievement-reveal" id="achievementReveal"></div>
@@ -740,25 +740,25 @@ a{color:inherit}
   const FONT_SANS = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif';
 
   const COPY = {
-    slogan: '路，是别人让出来的。',
-    win3: '三步并作两步。路还没醒，你已经到了。',
-    win2: '到了。多绕的两步，算你散步。',
-    win1: '到了就行。人生哪有什么最优解。',
-    lose: '步数用完了，路还没松开。别跟路较劲，换个走法。',
-    tipPush: '你不动。点他一下，他会退一步。',
-    tipCharge: '按住不放，退得更远。最多四格。',
-    tipChain: '撞上的人也会退。人情，是会传染的。',
-    tipStomp: '再点一下空地，就是跺脚。周围的人都会被弹开。',
-    fat: '胖子纹丝不动。他只是看了你一眼。',
-    noOne: '周围没人，脚白跺了。',
-    noStomp: '脚麻了。这关的跺脚次数用完了。',
-    dailyNote: '今天全服推同一拨人'
+    slogan: 'The road is made by those who move.',
+    win3: "Two steps where three would do. The road is still waking up.",
+    win2: "You made it. The extra steps were a nice walk.",
+    win1: "You made it. Life has no optimal solution anyway.",
+    lose: "Out of steps. The road is still shut. Don't fight it — try another way.",
+    tipPush: "You don't move. Tap someone and they'll step back.",
+    tipCharge: "Hold to push farther. Four tiles max.",
+    tipChain: "Anyone they bump into steps back too. Kindness is contagious.",
+    tipStomp: "Tap empty ground again to stomp. Everyone around you gets shoved.",
+    fat: "The big guy doesn't budge. He just looks at you.",
+    noOne: "No one around. That stomp was purely decorative.",
+    noStomp: "Your feet are numb. No stomps left this level.",
+    dailyNote: "Same crowd, same layout today."
   };
 
   const ACHIEVEMENTS = [
-    { id: 'zeroCharge', name: '零蓄力通关', flavor: '你连力气都省了。' },
-    { id: 'sleeperOnly', name: '只用瞌睡者通关', flavor: '安静的人最好说话。' },
-    { id: 'noNormal', name: '不推普通人通关', flavor: '素质借路，文明推人。' }
+    { id: 'zeroCharge', name: 'No Charge Clear', flavor: 'You even saved your strength.' },
+    { id: 'sleeperOnly', name: 'Sleeper Only', flavor: 'Quiet people are the easiest to talk to.' },
+    { id: 'noNormal', name: 'No Civilians', flavor: 'Polite borrowing. Civilized shoving.' }
   ];
 
   /* ==========================================================
@@ -770,8 +770,8 @@ a{color:inherit}
   const LEVELS = [
     {
       id: 'L1',
-      name: '让一让',
-      hint: '点一下，他就退一步。',
+      name: 'Step Aside',
+      hint: "Tap someone. They'll step back.",
       grid: [
         '############',
         '############',
@@ -804,8 +804,8 @@ a{color:inherit}
     },
     {
       id: 'L2',
-      name: '拐个弯',
-      hint: '按住不放，再松手。',
+      name: 'Corner',
+      hint: 'Hold, then let go.',
       grid: [
         '############',
         '#####...####',
@@ -840,8 +840,8 @@ a{color:inherit}
     },
     {
       id: 'L3',
-      name: '胖墙',
-      hint: '胖子挡得住，放心。',
+      name: 'Heavy Wall',
+      hint: 'The big guy holds the line.',
       grid: [
         '############',
         '############',
@@ -878,8 +878,8 @@ a{color:inherit}
     },
     {
       id: 'L4',
-      name: '留个人',
-      hint: '把瞌睡的人留在板上。',
+      name: 'Leave One',
+      hint: 'Leave a sleeper on the plate.',
       grid: [
         '############',
         '############',
@@ -911,8 +911,8 @@ a{color:inherit}
     },
     {
       id: 'L5',
-      name: '借力',
-      hint: '弹过去，撞一下，压住。',
+      name: 'Ricochet',
+      hint: 'Bounce, bump, press.',
       grid: [
         '############',
         '############',
@@ -947,8 +947,8 @@ a{color:inherit}
   // 额外机关试验场：不在五个教学关之内，用来展示旋转门、传送带、单向闸、共鸣柱。
   const BONUS_LEVEL = {
     id: 'B1',
-    name: '机关试验场',
-    hint: '柱子要两个，机关随便试。',
+    name: 'Mechanics',
+    hint: 'Two pillars. Try everything.',
     grid: [
       '############',
       '############',
@@ -1748,7 +1748,7 @@ a{color:inherit}
       const res = shiftNpcsOne(g, spring, p, movedMap);
       if (res.moved) {
         addRing(g, spring.x, spring.y, COLORS.spring, 0.65, 480, 2.5);
-        addFxText(g, spring.x, spring.y - 0.25, '弹', COLORS.spring, 650);
+        addFxText(g, spring.x, spring.y - 0.25, 'BOING', COLORS.spring, 650);
         Sound.spring();
         return true;
       }
@@ -1856,7 +1856,7 @@ a{color:inherit}
       if (npc.type === 'fat') {
         showToast(COPY.fat);
       } else {
-        showToast('前面堵着。换个方向，或者换个人。');
+        showToast('Blocked ahead. Try another direction, or another person.');
       }
     }
 
@@ -1870,7 +1870,7 @@ a{color:inherit}
       g.shake = Math.max(g.shake, 1.4);
     }
     if (!movedAny) {
-      addFxText(g, npc.x, npc.y - 0.18, '不动', COLORS.muted, 620);
+      addFxText(g, npc.x, npc.y - 0.18, 'STUCK', COLORS.muted, 620);
     }
 
     updateHud();
@@ -3203,11 +3203,11 @@ a{color:inherit}
       ctx.fillStyle = 'rgba(243,201,105,.88)';
       ctx.font = '500 ' + Math.max(9, r * 0.17) + 'px ' + FONT_SANS;
       ctx.textAlign = 'center';
-      ctx.fillText(power + ' 格', targetP.x, targetP.y - r * 0.58);
+      ctx.fillText(power + ' tiles', targetP.x, targetP.y - r * 0.58);
       if (power >= 4) {
         ctx.fillStyle = 'rgba(243,201,105,.55)';
         ctx.font = '400 ' + Math.max(8, r * 0.12) + 'px ' + FONT_SANS;
-        ctx.fillText('满', targetP.x, targetP.y - r * 0.4);
+        ctx.fillText('MAX', targetP.x, targetP.y - r * 0.4);
       }
     }
     ctx.restore();
@@ -3302,10 +3302,10 @@ a{color:inherit}
     UI.levelName.textContent = g.level.name;
     const stars = starsAtSteps(g.bestSteps, g.steps);
     UI.starMeter.innerHTML = starGlyphs(stars);
-    UI.starMeter.setAttribute('aria-label', '本局可获得 ' + stars + ' 星');
+    UI.starMeter.setAttribute('aria-label', 'This run can earn ' + stars + ' stars');
     UI.stompCount.textContent = g.stompLeft;
     if (g.charging) {
-      UI.hintText.textContent = '蓄力中 · 松手推 ' + g.charging.power + ' 格';
+      UI.hintText.textContent = 'Charging · release for ' + g.charging.power + ' tiles';
     } else {
       UI.hintText.textContent = g.level.hint || '';
     }
@@ -3313,9 +3313,9 @@ a{color:inherit}
   }
 
   function updateSoundButton() {
-    UI.soundBtn.textContent = profile.muted ? '静音' : '音效';
+    UI.soundBtn.textContent = profile.muted ? 'MUTED' : 'SOUND';
     UI.soundBtn.classList.toggle('muted', !!profile.muted);
-    UI.soundBtn.setAttribute('aria-label', profile.muted ? '开启音效' : '关闭音效');
+    UI.soundBtn.setAttribute('aria-label', profile.muted ? 'Enable sound' : 'Mute sound');
   }
 
   function showTip(text, ms) {
@@ -3350,12 +3350,12 @@ a{color:inherit}
       ? 'DAILY · ' + (g.meta.dateKey || '')
       : g.meta.mode === 'bonus'
         ? 'EXTRA · MECHANISM ROOM'
-        : '第 ' + pad2((g.meta.index || 0) + 1) + ' 关';
+        : 'LEVEL ' + pad2((g.meta.index || 0) + 1);
     UI.intro.innerHTML =
       '<span class="intro-no">' + escapeHtml(no) + '</span>' +
       '<h2 class="intro-name">' + escapeHtml(g.level.name) + '</h2>' +
       '<p class="intro-hint">' + escapeHtml(g.level.hint || '') + '</p>' +
-      '<span class="intro-tap">轻触继续</span>';
+      '<span class="intro-tap">Tap to continue</span>';
     UI.intro.classList.add('show');
     UI.intro.setAttribute('aria-hidden', 'false');
   }
@@ -3393,7 +3393,7 @@ a{color:inherit}
   function updateTitle() {
     const today = formatDateKey();
     if (profile.daily && profile.daily.dateKey === today) {
-      UI.dailyNote.textContent = '今日最佳 ' + profile.daily.steps + ' 步';
+      UI.dailyNote.textContent = "Today's best: " + profile.daily.steps + ' steps';
     } else {
       UI.dailyNote.textContent = COPY.dailyNote;
     }
@@ -3401,13 +3401,13 @@ a{color:inherit}
     const clearedAll = LEVELS.every(level => profile.levels[level.id]);
     const allThree = LEVELS.every(level => profile.levels[level.id] && profile.levels[level.id].stars === 3);
     if (app.canResume && game && game.status === 'paused') {
-      UI.continueBtn.textContent = '继续本关';
+      UI.continueBtn.textContent = 'Resume';
     } else if (allThree) {
-      UI.continueBtn.textContent = '再借一遍';
+      UI.continueBtn.textContent = 'Borrow It All Again';
     } else if (clearedAll) {
-      UI.continueBtn.textContent = '继续借路';
+      UI.continueBtn.textContent = 'Continue';
     } else {
-      UI.continueBtn.textContent = '开始借路';
+      UI.continueBtn.textContent = 'Start';
     }
 
     UI.levelSelect.innerHTML = LEVELS.map((level, i) => {
@@ -3424,16 +3424,16 @@ a{color:inherit}
     UI.achievementStrip.innerHTML = ACHIEVEMENTS.map(a => {
       const unlocked = profile.achievements.includes(a.id);
       return '<span class="ach-badge' + (unlocked ? ' unlocked' : '') + '"><span class="dot"></span>' +
-        (unlocked ? escapeHtml(a.name) : '隐藏成就') + '</span>';
+        (unlocked ? escapeHtml(a.name) : 'Hidden') + '</span>';
     }).join('');
 
     const bonusSaved = profile.levels[BONUS_LEVEL.id];
     if (bonusSaved) {
       const savedStars = bonusSaved.stars || 0;
-      UI.bonusState.textContent = '最佳 ' + bonusSaved.bestSteps + ' 步 · ' +
+      UI.bonusState.textContent = 'Best ' + bonusSaved.bestSteps + ' steps · ' +
         [0, 1, 2].map(k => k < savedStars ? '★' : '☆').join('');
     } else {
-      UI.bonusState.textContent = '转门 · 传送带 · 单向闸 · 共鸣柱';
+      UI.bonusState.textContent = 'Doors · Belts · Gates · Pillars';
     }
 
     $$('.level-chip', UI.levelSelect).forEach(btn => {
@@ -3532,23 +3532,23 @@ a{color:inherit}
     hideTitle();
     if (r.win) {
       UI.resultEyebrow.textContent = r.daily ? 'DAILY CLEARED' : r.bonus ? 'BONUS CLEARED' : 'ROUTE BORROWED';
-      UI.resultTitle.textContent = r.daily ? '今日借到了' : r.bonus ? '机关玩明白了' : '借到了';
+      UI.resultTitle.textContent = r.daily ? "Today's Route" : r.bonus ? 'Mechanics Clear' : 'Path Borrowed';
       UI.resultStars.innerHTML = [0, 1, 2].map(i =>
         '<span class="star ' + (i < r.stars ? '' : 'empty') + '">' + (i < r.stars ? '★' : '☆') + '</span>'
       ).join('');
       UI.resultCopy.textContent = r.stars === 3 ? COPY.win3 : r.stars === 2 ? COPY.win2 : COPY.win1;
-      const best = r.oldBest ? ' · 旧最佳 ' + r.oldBest + ' 步' : '';
-      UI.resultStats.textContent = '本局 ' + r.steps + ' 步 · 最优参考 ' + r.bestSteps + ' 步' + best;
+      const best = r.oldBest ? ' · old best ' + r.oldBest + ' steps' : '';
+      UI.resultStats.textContent = 'This run ' + r.steps + ' steps · par ' + r.bestSteps + ' steps' + best;
       UI.achievementReveal.innerHTML = (r.newAchievements || []).map(a =>
-        '<span class="ach-reveal">解锁 · ' + escapeHtml(a.name) + ' · ' + escapeHtml(a.flavor) + '</span>'
+        '<span class="ach-reveal">Unlocked · ' + escapeHtml(a.name) + ' · ' + escapeHtml(a.flavor) + '</span>'
       ).join('');
       renderResultActions(r);
     } else {
       UI.resultEyebrow.textContent = r.daily ? 'DAILY UNFINISHED' : r.bonus ? 'BONUS UNFINISHED' : 'NO ROUTE';
-      UI.resultTitle.textContent = '路还没开';
+      UI.resultTitle.textContent = 'No Path Yet';
       UI.resultStars.innerHTML = '<span class="star empty">☆</span><span class="star empty">☆</span><span class="star empty">☆</span>';
       UI.resultCopy.textContent = COPY.lose;
-      UI.resultStats.textContent = '走了 ' + r.steps + ' 步 · 上限 ' + (game ? game.maxSteps : '') + ' 步';
+      UI.resultStats.textContent = 'Walked ' + r.steps + ' steps · limit ' + (game ? game.maxSteps : '') + ' steps';
       UI.achievementReveal.innerHTML = '';
       renderResultActions(r);
     }
@@ -3566,12 +3566,12 @@ a{color:inherit}
       const retry = document.createElement('button');
       retry.type = 'button';
       retry.className = 'btn-primary';
-      retry.textContent = '换个走法';
+      retry.textContent = 'Try Another Way';
       retry.addEventListener('click', retryCurrentLevel);
       const menu = document.createElement('button');
       menu.type = 'button';
       menu.className = 'btn-ghost';
-      menu.textContent = '回目录';
+      menu.textContent = 'Menu';
       menu.addEventListener('click', backToTitle);
       UI.resultActions.append(retry, menu);
       return;
@@ -3582,34 +3582,34 @@ a{color:inherit}
       const again = document.createElement('button');
       again.type = 'button';
       again.className = 'btn-primary';
-      again.textContent = '再借一次';
+      again.textContent = 'Borrow Again';
       again.addEventListener('click', startDaily);
 
       const gif = document.createElement('button');
       gif.type = 'button';
       gif.className = 'btn-secondary';
-      gif.innerHTML = '<span>回放 GIF</span><small>接口已预留</small>';
+      gif.innerHTML = '<span>Replay GIF</span><small>Hook ready</small>';
       gif.addEventListener('click', () => {
         DailyChallenge.exportReplayGIF(game);
-        gif.innerHTML = '<span>轨迹已记录</span><small>待服务器接入</small>';
+        gif.innerHTML = '<span>Trail saved</span><small>Server hookup pending</small>';
       });
 
       const menu = document.createElement('button');
       menu.type = 'button';
       menu.className = 'btn-ghost';
-      menu.textContent = '回目录';
+      menu.textContent = 'Menu';
       menu.addEventListener('click', backToTitle);
       UI.resultActions.append(again, gif, menu);
     } else if (r.bonus) {
       const again = document.createElement('button');
       again.type = 'button';
       again.className = 'btn-primary';
-      again.textContent = '再逛一次';
+      again.textContent = 'Visit Again';
       again.addEventListener('click', startBonus);
       const menu = document.createElement('button');
       menu.type = 'button';
       menu.className = 'btn-ghost';
-      menu.textContent = '回目录';
+      menu.textContent = 'Menu';
       menu.addEventListener('click', backToTitle);
       UI.resultActions.append(again, menu);
     } else {
@@ -3617,7 +3617,7 @@ a{color:inherit}
       const primary = document.createElement('button');
       primary.type = 'button';
       primary.className = 'btn-primary';
-      primary.textContent = isLast ? '试试每日挑战' : '下一关';
+      primary.textContent = isLast ? 'Try Daily Challenge' : 'Next Level';
       primary.addEventListener('click', () => {
         if (isLast) startDaily();
         else startStoryLevel((app.meta.index || 0) + 1);
@@ -3626,13 +3626,13 @@ a{color:inherit}
       const again = document.createElement('button');
       again.type = 'button';
       again.className = 'btn-ghost';
-      again.textContent = '再借一回';
+      again.textContent = 'Borrow Again';
       again.addEventListener('click', retryCurrentLevel);
 
       const menu = document.createElement('button');
       menu.type = 'button';
       menu.className = 'btn-ghost';
-      menu.textContent = '回目录';
+      menu.textContent = 'Menu';
       menu.addEventListener('click', backToTitle);
       UI.resultActions.append(primary, again, menu);
     }
@@ -3661,7 +3661,7 @@ a{color:inherit}
     } else if (game.status === 'paused') {
       showTitle();
     } else {
-      showToast('这一手还没走完。');
+      showToast('Finish this move first.');
     }
   }
 
@@ -3721,8 +3721,8 @@ a{color:inherit}
 
       return {
         id: 'daily-' + dateKey,
-        name: '今日人流',
-        hint: '同一拨人，全服一起推。',
+        name: 'Daily Crowd',
+        hint: 'Same crowd. Same layout. Everyone.',
         grid: grid,
         player: { x: 1, y: 5 },
         goal: { x: 10, y: 5 },
@@ -3748,7 +3748,7 @@ a{color:inherit}
         replay: g ? g.replay : []
       };
       // 未来：把 replay 画到离屏 Canvas，再编码为 GIF 并上传分享。
-      console.info('[借过] 轨迹回放接口已预留：DailyChallenge.exportReplayGIF()', payload);
+      console.info('[Excuse Me] Replay GIF interface ready: DailyChallenge.exportReplayGIF()', payload);
       return payload;
     }
 
@@ -3840,7 +3840,7 @@ a{color:inherit}
     try {
       render(now);
     } catch (e) {
-      console.error('[借过] render error', e);
+      console.error('[Excuse Me] render error', e);
     }
     requestAnimationFrame(loop);
   }
